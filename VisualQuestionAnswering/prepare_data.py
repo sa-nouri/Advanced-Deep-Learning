@@ -30,10 +30,9 @@ def get_data():
 
     # Read answers from the easy-vqa package
     all_answers = get_answers()
-
     num_answers = len(all_answers)
     print(f'Found {num_answers} total answers:')
-    print(all_answers)
+
 
     # Read images from the easy-vqa package
     train_ims = read_images(get_train_image_paths())
