@@ -1,4 +1,3 @@
-# Prepare Data
 import numpy as np
 from easy_vqa import (get_answers, get_test_image_paths, get_test_questions,
                       get_train_image_paths, get_train_questions)
@@ -6,7 +5,7 @@ from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.utils import to_categorical
 
-print('\n--- Reading/processing images...')
+
 def load_and_proccess_image(image_path):
     # Load image, then scale and shift pixel values to [-0.5, 0.5]
     im = img_to_array(load_img(image_path))
