@@ -17,6 +17,7 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
+from pandas.core.dtypes.missing import notna
 
 from tensorflow.python.distribute import sharded_variable
 from tensorflow.python.eager import context
@@ -217,3 +218,8 @@ class Embedding(Layer):
     }
     base_config = super(Embedding, self).get_config()
     return dict(list(base_config.items()) + list(config.items()))
+
+
+# @keras_export('keras.layers.Embedding')
+# class RevisedEmbedding(Embedding):
+
