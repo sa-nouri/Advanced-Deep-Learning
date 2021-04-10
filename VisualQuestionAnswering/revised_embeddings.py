@@ -18,6 +18,7 @@ from __future__ import absolute_import, division, print_function
 
 import numpy as np
 from pandas.core.dtypes.missing import notna
+from scipy.spatial.distance import cdist
 from tensorflow.python.distribute import sharded_variable
 from tensorflow.python.eager import context
 from tensorflow.python.framework import config as tf_config
@@ -218,8 +219,14 @@ class Embedding(Layer):
 
 @keras_export('keras.layers.Embedding')
 class RevisedEmbedding(Embedding):
-  def euclidean_distance(self):
+
+  def euclidean_distance(self) -> np.ndarray:
       embedding_out = np.array(self.call(self.embeddings_initializer))
       embedding_out_reshaped = embedding_out.reshape(embedding_out.shape[0], 1, embedding_out.shape[1])
       distance = np.sqrt(np.einsum('ijk, ijk->ij', embedding_out-embedding_out_reshaped, embedding_out-embedding_out_reshaped))
+      return distance
+
+  def cosine_distance(self) -> np.ndarray:
+      embedding_out = np.array(self.call(self.embeddings_initializer))
+      distance = cdist(embedding_out, embedding_out, metric='cosine')
       return distance
