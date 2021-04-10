@@ -14,24 +14,20 @@
 # ==============================================================================
 """Embedding layer.
 """
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from pandas.core.dtypes.missing import notna
+from __future__ import absolute_import, division, print_function
 
+import numpy as np
+from pandas.core.dtypes.missing import notna
 from tensorflow.python.distribute import sharded_variable
 from tensorflow.python.eager import context
 from tensorflow.python.framework import config as tf_config
 from tensorflow.python.framework import ops
 from tensorflow.python.keras import backend as K
-from tensorflow.python.keras import constraints
-from tensorflow.python.keras import initializers
-from tensorflow.python.keras import regularizers
+from tensorflow.python.keras import constraints, initializers, regularizers
 from tensorflow.python.keras.engine import base_layer_utils
 from tensorflow.python.keras.engine.base_layer import Layer
 from tensorflow.python.keras.utils import tf_utils
-from tensorflow.python.ops import embedding_ops
-from tensorflow.python.ops import math_ops
+from tensorflow.python.ops import embedding_ops, math_ops
 from tensorflow.python.util.tf_export import keras_export
 
 
@@ -131,7 +127,7 @@ class Embedding(Layer):
     self.input_length = input_length
 
   @tf_utils.shape_type_conversion
-  def build(self, input_shape):
+  def build(self):
     # Note: most sparse optimizers do not have GPU kernels defined. When
     # building graphs, the placement algorithm is able to place variables on CPU
     # since it knows all kernels using the variable only exist on CPU.
@@ -220,6 +216,10 @@ class Embedding(Layer):
     return dict(list(base_config.items()) + list(config.items()))
 
 
-# @keras_export('keras.layers.Embedding')
-# class RevisedEmbedding(Embedding):
-
+@keras_export('keras.layers.Embedding')
+class RevisedEmbedding(Embedding):
+  def euclidean_distance(self):
+      embedding_out = np.array(self.call(self.embeddings_initializer))
+      embedding_out_reshaped = embedding_out.reshape(embedding_out.shape[0], 1, embedding_out.shape[1])
+      distance = np.sqrt(np.einsum('ijk, ijk->ij', embedding_out-embedding_out_reshaped, embedding_out-embedding_out_reshaped))
+      return distance
