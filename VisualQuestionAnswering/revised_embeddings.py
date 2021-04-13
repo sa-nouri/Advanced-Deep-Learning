@@ -225,7 +225,6 @@ class RevisedEmbedding(Embedding):
       self.embedding_out = embedding_out
 
   def euclidean_distance(self) -> np.ndarray:
-      # embedding_out = np.array(self.call(self.embeddings_initializer))
       embedding_out = self.embedding_out
       embedding_out_reshaped = embedding_out.reshape(embedding_out.shape[0], 1, embedding_out.shape[1])
       distance = np.sqrt(np.einsum('ijk, ijk->ij', embedding_out-embedding_out_reshaped, embedding_out-embedding_out_reshaped))
