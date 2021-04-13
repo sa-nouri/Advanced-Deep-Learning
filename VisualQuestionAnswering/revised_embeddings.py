@@ -220,13 +220,18 @@ class Embedding(Layer):
 @keras_export('keras.layers.Embedding')
 class RevisedEmbedding(Embedding):
 
+  def __init__(self, input_dim, output_dim, embeddings_initializer, embeddings_regularizer, activity_regularizer, embeddings_constraint, mask_zero, input_length, embedding_out, **kwargs):
+      super().__init__(input_dim, output_dim, embeddings_initializer=embeddings_initializer, embeddings_regularizer=embeddings_regularizer, activity_regularizer=activity_regularizer, embeddings_constraint=embeddings_constraint, mask_zero=mask_zero, input_length=input_length, **kwargs)
+      self.embedding_out = embedding_out
+
   def euclidean_distance(self) -> np.ndarray:
-      embedding_out = np.array(self.call(self.embeddings_initializer))
+      # embedding_out = np.array(self.call(self.embeddings_initializer))
+      embedding_out = self.embedding_out
       embedding_out_reshaped = embedding_out.reshape(embedding_out.shape[0], 1, embedding_out.shape[1])
       distance = np.sqrt(np.einsum('ijk, ijk->ij', embedding_out-embedding_out_reshaped, embedding_out-embedding_out_reshaped))
       return distance
 
   def cosine_distance(self) -> np.ndarray:
-      embedding_out = np.array(self.call(self.embeddings_initializer))
+      embedding_out = self.embedding_out
       distance = cdist(embedding_out, embedding_out, metric='cosine')
       return distance
