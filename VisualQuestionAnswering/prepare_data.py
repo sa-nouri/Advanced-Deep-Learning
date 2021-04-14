@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 import numpy as np
 from easy_vqa import (get_answers, get_test_image_paths, get_test_questions,
                       get_train_image_paths, get_train_questions)
@@ -20,7 +22,7 @@ def read_images(paths):
         ims[image_id] = load_and_proccess_image(image_path)
     return ims
 
-
+@lru_cache()
 def get_data():
     # Read questions from the easy-vqa package
     train_qs, train_answers, train_image_ids = get_train_questions()
