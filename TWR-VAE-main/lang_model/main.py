@@ -67,14 +67,10 @@ if args.dataset == "ptb":
     Train = Corpus(base_path+'/dataset/ptb/ptb_train.txt', min_word_count=args.min_word_count)
     Valid = Corpus(base_path+'/dataset/ptb/ptb_val.txt', word_dic=Train.word_id, min_word_count=args.min_word_count)
     Test = Corpus(base_path+'/dataset/ptb/ptb_test.txt', word_dic=Train.word_id, min_word_count=args.min_word_count)
-elif args.dataset == "yelp":
-    Train = Corpus(base_path+'/dataset/yelp/yelp.train.txt', min_word_count=args.min_word_count)
-    Valid = Corpus(base_path+'/dataset/yelp/yelp.valid.txt', word_dic=Train.word_id, min_word_count=args.min_word_count)
-    Test = Corpus(base_path+'/dataset/yelp/yelp.test.txt', word_dic=Train.word_id, min_word_count=args.min_word_count)
-elif args.dataset == "yahoo":
-    Train = Corpus(base_path+'/dataset/yahoo/yahoo_train.txt', min_word_count=args.min_word_count)
-    Valid = Corpus(base_path+'/dataset/yahoo/yahoo_val.txt', word_dic=Train.word_id, min_word_count=args.min_word_count)
-    Test = Corpus(base_path+'/dataset/yahoo/yahoo_test.txt', word_dic=Train.word_id, min_word_count=args.min_word_count)
+elif args.dataset == "WikeText":
+    Train = Corpus(base_path+'/dataset/wiki/wiki.train.txt', min_word_count=args.min_word_count)
+    Valid = Corpus(base_path+'/dataset/wiki/wiki.valid.txt', word_dic=Train.word_id, min_word_count=args.min_word_count)
+    Test = Corpus(base_path+'/dataset/wiki/wiki.test.txt', word_dic=Train.word_id, min_word_count=args.min_word_count)
 
 if args.load:
     model_dir = args.model_dir
@@ -276,7 +272,7 @@ def reconstruction(corpus, ep):
 
 
 
-ep = 0
+ep:int = 0
 # ============== run ==============
 if args.load:
     state = torch.load(model_dir+'TWRvae.tch')
