@@ -1,3 +1,4 @@
+import tensorflow as tf
 from fid_score.fid_score import FidScore
 
 directory_real_img = '/real_img/'
