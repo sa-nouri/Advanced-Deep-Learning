@@ -1,6 +1,18 @@
-# Advanced-Deep-Learning
+## Advanced Deep Learning
 
-Course projects and related materials will be published it.
+Deep learning is a machine learning technique that teaches computers to do what comes naturally to humans: learn by example.
+The repo contains some advanced topics' implementation about deep neural networks.
 
-This repository is contained my taken Advanced Deep Learning course at University of Tehran. The course has been instructed by Dr. Amin Sadeghi.
-Course projects' implementation with some explanation will be here. Besides, I have attached some articles, and other useful resources about course and projects.
+### Selected Projects
+
+- Implementing Autoregressive Generative models such as PixelCNN, and PixelRNN
+- Implementing Contrastive Representation Learning algorithms such as Contrastive Predictive Coding, and
+SimCLR
+- Implementing Unsupervised Representation Learning algorithms such as CutMix, and Image Rotation
+Prediction
+- Implementing Text (Language) Modelling models such as Neural Variational Document Model, Multi-Level
+Latent Variable, and Timestep-Wise Regularization
+- Implementing Generative Adversarial Networks such as BiGAN, BigBiGAN, InfoGAN-BigBiGAN
+- Implementing Image Classification models such as EfficientNet-B0, VGGNet, ResNet, Inception, and Xception 
+- Implementing Text Classifcation models by BERT, Fasttext, Word2vec, and Glove
+- Implementing Visual Question Answering models such as ResNet+Glove
