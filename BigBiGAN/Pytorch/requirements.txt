@@ -38,7 +38,7 @@ matplotlib==3.3.2         # via -r requirements.in
 numpy==1.18.5             # via -r requirements.in, h5py, keras, keras-preprocessing, matplotlib, opt-einsum, scipy, tensorboard, tensorflow, tensorflow-datasets, tensorflow-hub, torch, torchvision
 oauthlib==3.1.0           # via -r requirements.in, requests-oauthlib
 opt-einsum==3.3.0         # via -r requirements.in, tensorflow
-pillow==7.2.0             # via -r requirements.in, matplotlib, torchvision
+pillow==9.3.0             # via -r requirements.in, matplotlib, torchvision
 pip-tools==5.4.0          # via -r requirements.in
 promise==2.3              # via -r requirements.in, tensorflow-datasets
 protobuf==3.13.0          # via -r requirements.in, googleapis-common-protos, tensorboard, tensorflow, tensorflow-datasets, tensorflow-hub, tensorflow-metadata
