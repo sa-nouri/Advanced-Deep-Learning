@@ -11,7 +11,7 @@ barbar==0.2.1             # via -r requirements.in
 boto3==1.16.9             # via -r requirements.in
 botocore==1.19.9          # via -r requirements.in, boto3, s3transfer
 cachetools==4.1.1         # via -r requirements.in, google-auth
-certifi==2020.6.20        # via -r requirements.in, matplotlib, requests
+certifi==2022.12.7        # via -r requirements.in, matplotlib, requests
 chardet==3.0.4            # via -r requirements.in, requests
 click==7.1.2              # via -r requirements.in, pip-tools
 cycler==0.10.0            # via -r requirements.in, matplotlib
