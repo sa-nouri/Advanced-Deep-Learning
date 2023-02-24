@@ -41,7 +41,7 @@ opt-einsum==3.3.0         # via -r requirements.in, tensorflow
 pillow==7.2.0             # via -r requirements.in, matplotlib, torchvision
 pip-tools==5.4.0          # via -r requirements.in
 promise==2.3              # via -r requirements.in, tensorflow-datasets
-protobuf==3.13.0          # via -r requirements.in, googleapis-common-protos, tensorboard, tensorflow, tensorflow-datasets, tensorflow-hub, tensorflow-metadata
+protobuf==3.18.3          # via -r requirements.in, googleapis-common-protos, tensorboard, tensorflow, tensorflow-datasets, tensorflow-hub, tensorflow-metadata
 pyasn1-modules==0.2.8     # via -r requirements.in, google-auth
 pyasn1==0.4.8             # via -r requirements.in, pyasn1-modules, rsa
 pydot==1.4.1              # via -r requirements.in
