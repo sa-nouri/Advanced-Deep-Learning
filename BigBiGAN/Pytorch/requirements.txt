@@ -60,7 +60,7 @@ tensorflow-datasets==4.0.1  # via -r requirements.in
 tensorflow-estimator==2.3.0  # via -r requirements.in, tensorflow
 tensorflow-hub==0.9.0     # via -r requirements.in
 tensorflow-metadata==0.24.0  # via -r requirements.in, tensorflow-datasets
-tensorflow==2.9.3         # via -r requirements.in
+tensorflow==2.11.1         # via -r requirements.in
 termcolor==1.1.0          # via -r requirements.in, tensorflow, tensorflow-datasets
 torch==1.6.0              # via -r requirements.in, torchvision
 torchvision==0.7.0        # via -r requirements.in
