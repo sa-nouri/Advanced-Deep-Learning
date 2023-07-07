@@ -35,7 +35,7 @@ keras==2.4.3              # via -r requirements.in
 kiwisolver==1.2.0         # via -r requirements.in, matplotlib
 markdown==3.3             # via -r requirements.in, tensorboard
 matplotlib==3.3.2         # via -r requirements.in
-numpy==1.18.5             # via -r requirements.in, h5py, keras, keras-preprocessing, matplotlib, opt-einsum, scipy, tensorboard, tensorflow, tensorflow-datasets, tensorflow-hub, torch, torchvision
+numpy==1.22.0             # via -r requirements.in, h5py, keras, keras-preprocessing, matplotlib, opt-einsum, scipy, tensorboard, tensorflow, tensorflow-datasets, tensorflow-hub, torch, torchvision
 oauthlib==3.1.0           # via -r requirements.in, requests-oauthlib
 opt-einsum==3.3.0         # via -r requirements.in, tensorflow
 pillow==9.3.0             # via -r requirements.in, matplotlib, torchvision
