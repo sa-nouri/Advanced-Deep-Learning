@@ -49,7 +49,7 @@ pyparsing==2.4.7          # via -r requirements.in, matplotlib, pydot
 python-dateutil==2.8.1    # via -r requirements.in, botocore, matplotlib
 pyyaml==5.3.1             # via -r requirements.in, keras
 requests-oauthlib==1.3.0  # via -r requirements.in, google-auth-oauthlib
-requests==2.24.0          # via -r requirements.in, requests-oauthlib, tensorboard, tensorflow-datasets
+requests==2.31.0          # via -r requirements.in, requests-oauthlib, tensorboard, tensorflow-datasets
 rsa==4.6                  # via -r requirements.in, google-auth
 s3transfer==0.3.3         # via -r requirements.in, boto3
 scipy==1.5.2              # via -r requirements.in, keras
