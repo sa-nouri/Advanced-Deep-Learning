@@ -66,7 +66,7 @@ torch==1.13.1              # via -r requirements.in, torchvision
 torchvision==0.7.0        # via -r requirements.in
 tqdm==4.50.2              # via -r requirements.in, tensorflow-datasets
 urllib3==1.26.5          # via -r requirements.in, botocore, requests
-werkzeug==1.0.1           # via -r requirements.in, tensorboard
+werkzeug==2.2.3           # via -r requirements.in, tensorboard
 wheel==0.36.1             # via astunparse, tensorboard, tensorflow
 wrapt==1.12.1             # via -r requirements.in, tensorflow
 zipp==3.3.0               # via -r requirements.in, importlib-metadata, importlib-resources
