@@ -203,3 +203,155 @@ Contributions are welcome! Please feel free to submit a Pull Request. Each modul
 #### License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+### Image Classification Module
+
+The Image Classification module implements state-of-the-art deep learning models for image classification tasks, currently featuring EfficientNet-B0 implementation with plans to add more architectures.
+
+#### Features
+
+1. **EfficientNet Implementation**:
+   - Pre-trained EfficientNet-B0 backbone
+   - Custom classification head with dropout
+   - Data augmentation pipeline
+   - Transfer learning support
+   - Comprehensive metrics tracking
+
+2. **Key Features**:
+   - Support for multiple datasets (currently Cars196)
+   - Image preprocessing and augmentation
+   - Flexible model architecture
+   - Comprehensive evaluation metrics
+   - Training visualization tools
+
+3. **Training Process**:
+   - Two-phase training (frozen and unfrozen)
+   - Learning rate scheduling
+   - Batch normalization
+   - Dropout regularization
+   - Gradient clipping
+
+4. **Evaluation Metrics**:
+   - Accuracy, precision, recall
+   - AUC and PR curves
+   - Confusion matrix
+   - Training/validation loss curves
+   - Learning curves
+
+5. **Code Quality**:
+   - Type hints and documentation
+   - Modular design
+   - Comprehensive error handling
+   - Logging and monitoring
+   - Visualization utilities
+
+#### Planned Improvements
+
+1. **Additional Models**:
+   - VGGNet implementation
+   - ResNet variants
+   - Inception models
+   - Xception architecture
+
+2. **Enhanced Features**:
+   - Model export to ONNX/TensorRT
+   - Quantization support
+   - Distributed training
+   - Mixed precision training
+   - Custom dataset support
+
+3. **Code Structure**:
+   - Convert notebooks to Python modules
+   - Add configuration management
+   - Implement proper logging
+   - Add unit tests
+   - Create CLI interface
+
+4. **Documentation**:
+   - API documentation
+   - Usage examples
+   - Performance benchmarks
+   - Model comparison
+   - Best practices guide
+
+### BigBiGAN Module
+
+The BigBiGAN module implements a large-scale bidirectional GAN architecture for unsupervised representation learning. This implementation is based on the [BigBiGAN paper](https://arxiv.org/abs/1907.02544) and includes both the original BigBiGAN and BigGAN architectures.
+
+#### Features
+
+1. **Model Architecture**:
+   - BigBiGAN implementation with RevNet encoder
+   - BigGAN generator and discriminator
+   - Spectral normalization support
+   - Conditional generation capabilities
+   - Self-attention mechanism
+
+2. **Training Features**:
+   - Support for multiple datasets (MNIST, FMNIST, CIFAR10, CIFAR100, Imagewoof, Imagenette)
+   - Configurable training parameters
+   - Flexible model architecture
+   - Comprehensive logging and visualization
+   - Checkpoint management
+
+3. **Model Components**:
+   - Generator with conditional batch normalization
+   - Discriminator with spectral normalization
+   - Encoder based on RevNet architecture
+   - Multiple loss functions (BiGAN, WGAN)
+   - Self-attention layers
+
+4. **Code Quality**:
+   - Modular and extensible design
+   - Comprehensive configuration system
+   - Type hints and documentation
+   - Clean code structure
+   - Easy to use API
+
+#### Usage
+
+```python
+# Training
+python scripts/train.py --dataset CIFAR10 --data_path /path/to/data --model_architecture bigbigan
+
+# Evaluation
+python scripts/evaluate.py --checkpoint_path /path/to/checkpoint --data_path /path/to/data
+
+# Generation
+python scripts/generate.py --checkpoint_path /path/to/checkpoint --output_path /path/to/output
+```
+
+#### Requirements
+
+- Python 3.7+
+- PyTorch >= 1.7.0
+- torchvision >= 0.8.0
+- numpy >= 1.19.0
+- matplotlib >= 3.3.0
+- tensorboard >= 2.3.0
+
+#### Planned Improvements
+
+1. **Model Enhancements**:
+   - Add more encoder architectures
+   - Implement additional loss functions
+   - Add model quantization support
+   - Add ONNX export capability
+
+2. **Training Features**:
+   - Add distributed training support
+   - Implement mixed precision training
+   - Add more optimization strategies
+   - Add learning rate finder
+
+3. **Evaluation**:
+   - Add FID score calculation
+   - Add IS score calculation
+   - Add reconstruction metrics
+   - Add feature matching metrics
+
+4. **Documentation**:
+   - Add API documentation
+   - Add usage examples
+   - Add performance benchmarks
+   - Add best practices guide
