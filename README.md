@@ -30,45 +30,151 @@ NLP/
 └── utils/                  # Common utilities and tools
 ```
 
-#### Features
+#### Technical Implementation Details
 
 1. **Text Classification**
-   - Multiple model architectures (BERT, FastText, Word2Vec, GloVe)
-   - Comprehensive data processing pipeline
-   - Training utilities with checkpointing
-   - Support for both CSV and JSON data formats
-   - Proper error handling and logging
+   - **BERT Model**:
+     - Uses pre-trained BERT model as encoder
+     - Implements custom classification head with dropout
+     - Supports transfer learning with fine-tuning
+     - Uses AdamW optimizer with weight decay
+     - Implements learning rate scheduling with warmup
+     - Handles sequence lengths up to 512 tokens
+     - Supports both single-label and multi-label classification
+
+   - **FastText Model**:
+     - Implements character n-gram features (3-6 grams)
+     - Uses hierarchical softmax for efficient training
+     - Supports subword embeddings
+     - Implements bag of n-grams with TF-IDF weighting
+     - Uses adaptive learning rate
+
+   - **Word2Vec Model**:
+     - Implements CBOW and Skip-gram architectures
+     - Uses negative sampling for efficiency
+     - Supports both pre-trained and custom embeddings
+     - Implements CNN layers for feature extraction
+     - Uses max pooling for feature aggregation
+
+   - **GloVe Model**:
+     - Supports pre-trained GloVe embeddings
+     - Implements LSTM layers for sequence modeling
+     - Uses bidirectional processing
+     - Implements attention mechanism
+     - Supports variable length sequences
 
 2. **Sentiment Analysis**
-   - BERT-based text classification
-   - Transfer learning from pre-trained models
-   - Training history tracking
-   - Model checkpointing
-   - Learning rate scheduling with warmup
+   - **Model Architecture**:
+     - BERT-based encoder with custom classification head
+     - Implements attention mechanism for focus on important tokens
+     - Uses dropout for regularization (p=0.1)
+     - Supports binary and multi-class classification
+     - Implements label smoothing for better generalization
+
+   - **Training Process**:
+     - Uses AdamW optimizer with weight decay
+     - Implements learning rate scheduling with warmup
+     - Uses gradient clipping (max_norm=1.0)
+     - Implements early stopping with patience
+     - Supports mixed precision training (FP16)
 
 3. **Visual Question Answering**
-   - ResNet-18 based image feature extraction
-   - GRU-based question processing
-   - Attention mechanism for focusing on relevant image regions
-   - Training history visualization
-   - Attention map visualization
+   - **Image Processing**:
+     - ResNet-18 backbone with pre-trained weights
+     - Feature extraction from last convolutional layer
+     - Spatial attention mechanism
+     - Image feature projection to 512 dimensions
+     - Supports multiple image sizes with adaptive pooling
+
+   - **Question Processing**:
+     - Word embedding layer (300 dimensions)
+     - Bidirectional GRU for sequence modeling
+     - Question encoding to 150 dimensions
+     - Attention mechanism for question understanding
+     - Supports variable length questions
+
+   - **Answer Generation**:
+     - Multi-modal fusion of image and question features
+     - Multi-layer classifier with ReLU activation
+     - Dropout for regularization (p=0.5)
+     - Softmax output for answer prediction
+     - Supports both open-ended and multiple-choice answers
 
 4. **Common Utilities**
-   - Configuration management
-   - Metrics calculation and visualization
-   - Logging and error handling
-   - Model checkpointing
-   - Data processing utilities
+   - **Configuration Management**:
+     - YAML and JSON support
+     - Type-safe configuration classes
+     - Validation of configuration parameters
+     - Support for nested configurations
+     - Environment variable integration
 
-#### Key Features Across All Modules
+   - **Metrics and Evaluation**:
+     - Accuracy, precision, recall, F1 score
+     - Confusion matrix visualization
+     - ROC and PR curves
+     - Learning curve analysis
+     - Model comparison tools
 
-- **Modular Design**: Each module is self-contained and follows consistent design patterns
-- **Error Handling**: Comprehensive error handling and logging throughout
-- **Documentation**: Detailed README files and inline documentation
-- **Configuration**: Flexible configuration management using YAML/JSON
-- **Metrics**: Common evaluation metrics and visualization tools
-- **Training**: Support for model checkpointing and early stopping
-- **Data Processing**: Standardized data loading and preprocessing pipelines
+   - **Training Utilities**:
+     - Checkpoint management
+     - Early stopping implementation
+     - Learning rate scheduling
+     - Gradient accumulation
+     - Mixed precision training support
+
+   - **Data Processing**:
+     - Efficient data loading with caching
+     - Multi-process data loading
+     - Custom dataset implementations
+     - Data augmentation pipelines
+     - Tokenization utilities
+
+### Text Generation Module
+
+The Text Generation module implements a Timestep-Wise Regularized Variational Autoencoder (TWR-VAE) for text generation tasks. This module focuses on generating coherent and contextually relevant text responses in dialogue systems.
+
+#### Features
+
+1. **Model Architecture**:
+   - Bidirectional GRU for utterance encoding
+   - Context encoder with GRU for dialogue history
+   - Recognition network for posterior distribution
+   - Prior network for prior distribution
+   - Decoder with GRU for response generation
+
+2. **Key Features**:
+   - Timestep-wise regularization for better temporal dependencies
+   - Support for multiple datasets (PTB, Yelp, Yahoo)
+   - Comprehensive evaluation metrics
+   - Model export to ONNX and TorchScript
+   - Model quantization for efficient inference
+
+3. **Training Process**:
+   - Reconstruction loss for response generation
+   - KL divergence loss with annealing
+   - Beta parameter for balancing losses
+   - Adam optimizer with gradient clipping
+   - Learning rate scheduling
+
+4. **Evaluation Metrics**:
+   - BLEU scores (recall and precision)
+   - Bag-of-words similarity metrics
+   - Distinct metrics for diversity
+   - Perplexity for language modeling
+
+5. **Code Quality**:
+   - Type hints and documentation
+   - Modular design with reusable components
+   - Comprehensive error handling
+   - Logging and monitoring
+   - Unit tests and validation
+
+6. **Model Export**:
+   - ONNX export for cross-platform deployment
+   - TorchScript export for optimized inference
+   - Model quantization for reduced size
+   - Dynamic axes support for variable lengths
+   - Batch processing optimization
 
 #### Usage
 
